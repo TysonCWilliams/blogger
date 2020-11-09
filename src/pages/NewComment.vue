@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="new-comment">
       <h3>Add a New Comment</h3>
-      <!-- <form @submit.prevent="addPost"> -->
+      <!-- <form @submit.prevent="addComment"> -->
       <input v-model="state.newComment.blog" placeholder="title" ref="Blog" required />
       <input v-model="state.newComment.creatorEmail" placeholder="author name" required />
       <textarea name="" id="" cols="30" v-model="state.newComment.body" rows="10"></textarea>
@@ -15,9 +15,9 @@
 </template>
 
 <script>
-// import { computed, onMounted, reactive } from 'vue'
-// import { blogService } from '../services/BlogService'
-// import { AppState } from '../AppState'
+import { computed, onMounted, reactive } from 'vue'
+import { blogService } from '../services/BlogService'
+import { AppState } from '../AppState'
 
 export default {
   name: 'NewComment',
@@ -35,7 +35,7 @@ export default {
     return {
       state,
       comments: computed(() => AppState.currentBlog),
-      createBlog() {
+      createComment() {
         blogService.createComment(state.newComment)
       }
     }

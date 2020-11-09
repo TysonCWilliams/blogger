@@ -57,14 +57,6 @@ export default {
 
 <style lang="scss" scoped>
 
-/* .blog-post{
-  min-height: 100vh;
-  background-image: url('https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
-  background-size: cover;
-  background-repeat: no-repeat;
-  cursor: pointer;
-} */
-
 .card{
   border-style: solid;
   border-color: aquamarine;

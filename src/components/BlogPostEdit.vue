@@ -8,9 +8,9 @@
         <button v-if="post.creator" :disabled="user.email !== post.creator.email" @click="deleteBlog()">
           Delete
         </button>
+        <div class="row"></div>
         <div v-if="postData" class="card-body">
-          <input v-model="post.title" class="card-title text-danger">
-          <textarea v-model="post.title" class="card-title text-danger"></textarea>
+          <textarea v-model="state.activeBlog.title" class="card-title text-danger"></textarea>
           <p v-if="post.creator" class="card-text">
             {{ post.creator.name }}
           </p>
@@ -36,13 +36,14 @@ export default {
   setup(props) {
     const route = useRoute()
     const state = reactive({
-      activeBlog: AppState.currentBlog
+      activeBlog: computed(() => props.postData)
     })
     onMounted(() => {
       // console.log(this.$router)
       blogService.getCommentsByBlogId(route.params.postId)
     })
     return {
+      state,
       post: computed(() => props.postData),
       user: computed(() => AppState.user),
       comments: computed(() => AppState.currentBlogComments),

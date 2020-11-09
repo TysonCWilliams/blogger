@@ -61,7 +61,7 @@ class BlogService {
 
   async editBlog(blog) {
     try {
-      const res = await api.put('/api/blogs/' + blog._id)
+      const res = await api.put('/api/blogs/' + blog._id, blog)
       console.log(res)
       router.push({ name: 'Blog', params: { blogId: blog._id } })
     } catch (error) {
@@ -69,12 +69,21 @@ class BlogService {
     }
   }
 
-  async createComment(postData) {
-    console.log(postData)
+  async createComment(state, blogId) {
     try {
       const res = await api.post('/api/blogs/blogId/comments', postData)
       console.log(res)
       router.push('/')
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async editComment(blogId, body) {
+    try {
+      const res = await api.put('/api/comments' + blogId)
+      console.log(res)
+      router.push({ name: 'Blog', params: { blogId: body } })
     } catch (error) {
       console.error(error)
     }

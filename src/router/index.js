@@ -41,6 +41,18 @@ const routes = [
     component: EditBlog,
     beforeEnter: Auth0Provider.authGuard
   }
+  // {
+  //   path: '/newcomment',
+  //   name: 'NewComment',
+  //   component: NewComment,
+  //   beforeEnter: Auth0Provider.authGuard
+  // }
+  // {
+  //   path: '/edit/:commentId',
+  //   name: 'EditComment',
+  //   component: EditComment,
+  //   beforeEnter: Auth0Provider.authGuard
+  // }
 ]
 
 const router = createRouter({
